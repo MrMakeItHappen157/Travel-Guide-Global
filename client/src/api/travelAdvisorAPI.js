@@ -25,7 +25,7 @@ import axios from 'axios';
 
 export const getPlacesData = async (type, sw, ne) => {
   try {
-    const { data } = await axios.get(`http://localhost:5000/api/places/${type}?bl_latitude=${sw.lat}&bl_longitude=${sw.lng}&tr_longitude=${ne.lng}&tr_latitude=${ne.lat}`);
+    const { data } = await axios.get(`/api/places/${type}?bl_latitude=${sw.lat}&bl_longitude=${sw.lng}&tr_longitude=${ne.lng}&tr_latitude=${ne.lat}`);
     return data;
   } catch (error) {
     console.log(error);
@@ -35,7 +35,7 @@ export const getPlacesData = async (type, sw, ne) => {
 export const getWeatherData = async (lat, lng) => {
   try {
     if (lat && lng) {
-      const { data } = await axios.get(`http://localhost:5000/api/weather?lat=${lat}&lng=${lng}`);
+      const { data } = await axios.get(`/api/weather?lat=${lat}&lng=${lng}`);
 
       return data;
     }
